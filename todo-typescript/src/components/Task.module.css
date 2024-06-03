@@ -3,4 +3,20 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   background-color: #f7f5ef;
+  display: flex;
+  justify-content: space-between;
+}
+.removeBtn {
+  font: inherit;
+  background-color: #d10b04b7;
+  border: none;
+  color: #201d0f;
+  padding: 0.2rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.4s;
+  font-size: 1rem;
 }
