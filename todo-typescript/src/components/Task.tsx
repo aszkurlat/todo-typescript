@@ -1,6 +1,7 @@
 import classes from "./Task.module.css";
 
 const Task: React.FC<{
+  id: string;
   text: string;
   onRemoveTask: (id: string) => void;
 }> = (props) => {
