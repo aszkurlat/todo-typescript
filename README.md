@@ -4,6 +4,8 @@
 
 The To-Do List is a task management application built using Vite and TypeScript. This project demonstrates the use of key concepts and tools in the React ecosystem, such as the `useContext`, `useState`, and `useRef` hooks, as well as the implementation of data models in TypeScript.
 
+[Check out the Todo List demo](https://todo-with-typescript.pages.dev/)
+
 ### Technologies
 
 - **Vite**: A super-fast build tool for modern web projects.
