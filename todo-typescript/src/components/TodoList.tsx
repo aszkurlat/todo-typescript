@@ -1,15 +1,22 @@
-import TaskItem from "../models/task";
 import classes from "./TodoList.module.css";
 import Task from "./Task";
+import { TodoContext } from "../store/todo-context";
+import { useContext } from "react";
 
-const Todos: React.FC<{ tasks: TaskItem[] }> = (props) => {
+const TodoList: React.FC = () => {
+  const todoCtx = useContext(TodoContext);
   return (
     <ul className={classes.todoList}>
-      {props.tasks.map((task) => (
-        <Task key={task.id} text={task.text} />
+      {todoCtx.tasks.map((task) => (
+        <Task
+          key={task.id}
+          id={task.id}
+          text={task.text}
+          onRemoveTask={todoCtx.removeTodo.bind(null, task.id)}
+        />
       ))}
     </ul>
   );
 };
 
-export default Todos;
+export default TodoList;

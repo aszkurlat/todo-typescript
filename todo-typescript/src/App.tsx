@@ -1,24 +1,13 @@
 import NewTask from "./components/NewTask";
 import TodoList from "./components/TodoList";
-import TaskItem from "./models/task";
-import { useState } from "react";
+import TodoContextProvider from "./store/todo-context";
 
 function App() {
-  const [tasks, setTasks] = useState<TaskItem[]>([]);
-
-  const addTaskHandler = (taskText: string) => {
-    const myNewTask = new TaskItem(taskText);
-
-    setTasks((prev) => {
-      return prev.concat(myNewTask);
-    });
-  };
-
   return (
-    <>
-      <NewTask onAddTask={addTaskHandler} />
-      <TodoList tasks={tasks} />
-    </>
+    <TodoContextProvider>
+      <NewTask />
+      <TodoList />
+    </TodoContextProvider>
   );
 }
 

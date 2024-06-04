@@ -1,20 +1,25 @@
 import classes from "./NewTask.module.css";
-import { useRef } from "react";
+import { TodoContext } from "../store/todo-context";
+import { useRef, useContext } from "react";
 
-const NewTask: React.FC<{ onAddTask: (text: string) => void }> = (props) => {
+const NewTask: React.FC = () => {
+  const todoCtx = useContext(TodoContext);
   const inputRef = useRef<HTMLInputElement>(null);
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    const enteredText = inputRef.current?.value;
-    if (enteredText?.trim().length === 0) {
+
+    const enteredText = inputRef.current!.value;
+
+    if (enteredText.trim().length === 0) {
       return;
     }
-    props.onAddTask(enteredText);
+    todoCtx.addTodo(enteredText);
+    inputRef.current!.value = "";
   };
   return (
     <form className={classes.form} onSubmit={submitHandler}>
-      <label>ToDo List:</label>
-      <input type="text" ref={inputRef} />
+      <label className={classes.formLabel}>Task:</label>
+      <input className={classes.formInput} ref={inputRef} type="text" />
       <button>Add Task</button>
     </form>
   );
